@@ -17,8 +17,11 @@ describe("convertToNumber", () => {
     I: 1,
   };
   for (const key in romanNumerals) {
-    test(`should convert ${key} to ${romanNumerals[key]}`, () => {
+    it(`should convert ${key} to ${romanNumerals[key]}`, () => {
       expect(convertToNumber(key)).toBe(romanNumerals[key]);
     });
   }
+  it(`should return error message when input is invalid`, () => {
+    expect(convertToNumber("XEI")).toBe("Invalid Roman numeral: XEI");
+  });
 });
